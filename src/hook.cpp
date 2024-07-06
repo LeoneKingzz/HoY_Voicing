@@ -10,7 +10,9 @@ namespace hooks
         {
             auto data = RE::TESDataHandler::GetSingleton();
             bool IsActorTypeFelldir = actor->HasKeywordString("HoY_Felldir");
+            bool IsActorTypePhantomFelldir = actor->HasKeywordString("HoY_PhantomFelldir");
             bool IsActorTypeGreyBeard = actor->HasKeywordString("HoY_GreyBeard");
+            bool IsActorTypePhantomGreyBeard = actor->HasKeywordString("HoY_PhantomGreyBeard");
             bool IsActorTypeMiraak = actor->HasKeywordString("HoY_Miraak");
             bool IsActorTypeGormlaith = actor->HasKeywordString("HoY_Gormlaith");
             bool IsActorTypeHakon = actor->HasKeywordString("HoY_Hakon");
@@ -23,858 +25,529 @@ namespace hooks
             
             switch (hash(Lsht.data(), Lsht.size()))
             {
-            case "ks_DragonFlameWaveShoutALDUIN"_h:
+            case "HoY_BendWillShout_Miraak"_h:
                 if (SpellFire){
-                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8A0, "Heroes of Yore.esp")));
+                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x857, "Heroes of Yore.esp")));
                 } else{
-                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0xA8C, "Heroes of Yore.esp")));
+                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x855, "Heroes of Yore.esp")));
                 }
                 break;
 
-            case "005SummonShouts"_h:
+            case "HoY_DragonAspectShout_Miraak"_h:
                 if (SpellFire){
-                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x81D, "Heroes of Yore.esp")));
+                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x859, "Heroes of Yore.esp")));
                 } else{
-                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x81C, "Heroes of Yore.esp")));
+                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x858, "Heroes of Yore.esp")));
                 }
                 break;
 
-            case "005StormShoutsDECIEVE"_h:
+            case "HoY_SonicShieldShout_Miraak"_h:
                 if (SpellFire){
-                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x9CC, "Heroes of Yore.esp")));
+                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x854, "Heroes of Yore.esp")));
                 }else{
-                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x82D, "Heroes of Yore.esp")));
+                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x853, "Heroes of Yore.esp")));
                 }
                 break;
 
-            case "005SahloknirStormShout"_h:
+            case "HoY_PullofNirnShout_Miraak"_h:
                 if (SpellFire){
-                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x82E, "Heroes of Yore.esp")));
+                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x856, "Heroes of Yore.esp")));
                 }else{
-                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x82D, "Heroes of Yore.esp")));
+                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x855, "Heroes of Yore.esp")));
                 }
                 break;
 
-            case "005StormShoutsBLOOD"_h:
+            case "HoY_MarkedForDeathShout_Miraak"_h:
                 if (SpellFire){
-                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x949, "Heroes of Yore.esp")));
+                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x85D, "Heroes of Yore.esp")));
                 }else{
-                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x948, "Heroes of Yore.esp")));
+                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x85C, "Heroes of Yore.esp")));
                 }
                 break;
-            
-            case "005UniqueBreathShouts"_h:
-            case "005UniqueBreathShoutsALDUIN"_h:
-            case "005UniqueBreathShoutsODAH"_h:
-            case "005UniqueBreathShoutsPAAR"_h:
+
+            case "HoY_DisarmShout_Gormlaith"_h:
+            case "HoY_DisarmShout_Greybeard"_h:
+            case "HoY_DisarmShout_Ulfric"_h:
+            case "HoY_DisarmShout_EbonyWarrior"_h:
                 if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8F3, "Heroes of Yore.esp")));
+                    if (IsActorTypeEbonyWarrior){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B9, "Heroes of Yore.esp")));
                     }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8F9, "Heroes of Yore.esp")));
+                    if (IsActorTypeUlfric){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B5, "Heroes of Yore.esp")));
                     }
                     if (IsActorTypeGormlaith){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x903, "Heroes of Yore.esp")));
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x887, "Heroes of Yore.esp")));
                     }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8FF, "Heroes of Yore.esp")));
-                    }
-                    
-                }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8F2, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8F8, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x902, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8FE, "Heroes of Yore.esp")));
-                    }
-                }
-                break;
-
-            case "005VolleyBreathShouts"_h:
-            case "005VolleyBreathShoutsALDUIN"_h:
-            case "005VolleyBreathShoutsODAH"_h:
-            case "005VolleyBreathShoutsPAAR"_h:
-                if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8F1, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8F7, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x901, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8FD, "Heroes of Yore.esp")));
-                    }
-                    
-                }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8F0, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8F6, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x900, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8FC, "Heroes of Yore.esp")));
-                    }
-                }
-                break;
-
-            case "PaarthurnaxElementalFury"_h:
-                if (SpellFire){
-                    util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8E3, "Heroes of Yore.esp")));
-                }else{
-                    util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8E2, "Heroes of Yore.esp")));
-                }
-                break;
-
-            case "PaarthurnaxWhirlwindTempest"_h:
-                if (SpellFire){
-                    util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8E1, "Heroes of Yore.esp")));
-                }else{
-                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8E0, "Heroes of Yore.esp")));
-                }
-                break;
-
-            case "ks_DragonMoonBlast"_h:
-            case "ks_DragonMoonBlastALDUIN"_h:
-                if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8D1, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8C4, "Heroes of Yore.esp")));
-                    }
-
-                }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8D0, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8C3, "Heroes of Yore.esp")));
-                    }
-                }
-                break;
-
-            case "005StormShoutsFROST"_h:
-            case "zz005AlduinFroststorms"_h:
-                if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8CF, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8C2, "Heroes of Yore.esp")));
-                    }
-                }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8CE, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8C1, "Heroes of Yore.esp")));
-                    }
-                }
-                break;
-
-            case "zz05AlduinFirestorms"_h:
-            case "dunCGDragonStormCallShout"_h:
-            case "MQ206AlduinFirestormShout"_h:
-            case "005StormShoutsFIRE"_h:
-                if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x859, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8A8, "Heroes of Yore.esp")));
-                    }
-                }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x858, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8A7, "Heroes of Yore.esp")));
-                    }
-                }
-                break;
-
-                RE::BShkbAnimationGraph;
-
-            case "zz005DevourSoul_Alduin"_h:
-                if (SpellFire){
-                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8BE, "Heroes of Yore.esp")));
-                }else{
-                    util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8BD, "Heroes of Yore.esp")));
-                }
-                break;
-
-            case "005StormShoutsSHOCK"_h:
-            case "zz005AlduinLightningstorms"_h:
-                if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x832, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8BC, "Heroes of Yore.esp")));
-                    }
-                }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x831, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8BB, "Heroes of Yore.esp")));
-                    }
-                }
-                break;
-
-            case "ks_DragonCycloneShout"_h:
-            case "ks_DragonCycloneShoutALDUIN"_h:
-            case "ks_DragonCycloneShoutODAH"_h:
-            case "ks_DragonCycloneShoutPAAR"_h:
-                if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x837, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B6, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x890, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8DF, "Heroes of Yore.esp")));
-                    }
-                    
-                }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x836, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B5, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x88F, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8DE, "Heroes of Yore.esp")));
-                    }
-                }
-                break;
-
-            case "ks_DragonDrainVitalityShout"_h:
-            case "ks_DragonDrainVitalityShoutALDUIN"_h:
-            case "ks_DragonDrainVitalityShoutODAH"_h:
-                if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x820, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B4, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x88E, "Heroes of Yore.esp")));
-                    }
-                }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x81F, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B3, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x88D, "Heroes of Yore.esp")));
-                    }
-                }
-                break;
-
-            case "KS_DLC2BendWillShout_Alduin"_h:
-                if (SpellFire){
-                    util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0xA81, "Heroes of Yore.esp")));
-                }else{
-                    util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8AD, "Heroes of Yore.esp")));
-                }
-                break;
-
-            case "Serio_EDR_GravityBlastShout"_h:
-            case "Serio_EDR_GravityBlastShoutALDUIN"_h:
-            case "Serio_EDR_GravityBlastShoutODAH"_h:
-            case "Serio_EDR_GravityBlastShoutPAAR"_h:
-                if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x828, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8AE, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x888, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8DB, "Heroes of Yore.esp")));
-                    }
-                    
-                }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x827, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8AD, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x887, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8DA, "Heroes of Yore.esp")));
-                    }
-                }
-                break;
-
-            case "Serio_EDR_BackfireRecoilShout"_h:
-            case "Serio_EDR_BackfireRecoilShoutALDUIN"_h:
-            case "Serio_EDR_BackfireRecoilShoutODAH"_h:
-            case "Serio_EDR_BackfireRecoilShoutPAAR"_h:
-                if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x82A, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8AC, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x886, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8D9, "Heroes of Yore.esp")));
-                    }
-                    
-                }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x829, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8AB, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x885, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8D8, "Heroes of Yore.esp")));
-                    }
-                }
-                break;
-
-            case "ks_DragonBecomeEtherealShout"_h:
-            case "ks_DragonBecomeEtherealShoutALDUIN"_h:
-            case "ks_DragonBecomeEtherealShoutODAH"_h:
-            case "ks_DragonBecomeEtherealShoutPAAR"_h:
-                if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x834, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8A6, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x880, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8D5, "Heroes of Yore.esp")));
-                    }
-                    
-                }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x833, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8A5, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x87F, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8D4, "Heroes of Yore.esp")));
-                    }
-                }
-                break;
-
-            case "MQ101DragonUnrelentingForceShout"_h:
-            case "Serio_EDR_UnrelentingForceShout"_h:
-            case "Serio_EDR_UnrelentingForceShoutALDUIN"_h:
-            case "Serio_EDR_UnrelentingForceShoutODAH"_h:
-            case "Serio_EDR_UnrelentingForceShoutPAAR"_h:
-            case "ks_DragonUnrelentingForceAreaShout"_h:
-            case "ks_DragonUnrelentingForceAreaShoutALDUIN"_h:
-            case "ks_DragonUnrelentingForceAreaShoutODAH"_h:
-            case "ks_DragonUnrelentingForceAreaShoutPAAR"_h:
-                if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x16E53, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x10FF06, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x874, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x16E27, "Heroes of Yore.esp")));
-                    }
-                    
-                }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x16E50, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x10FF05, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x873, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x16E26, "Heroes of Yore.esp")));
-                    }
-                }
-                break;
-
-            case "ks_DragonDismayAreaShout"_h:
-            case "ks_DragonDismayAreaShoutALDUIN"_h:
-            case "ks_DragonDismayAreaShoutODAH"_h:
-            case "ks_DragonDismayAreaShoutPAAR"_h:
-                if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x16E69, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x10FF04, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x876, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x16E29, "Heroes of Yore.esp")));
-                    }
-                    
-                }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x16E59, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x10FF03, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
+                    if (IsActorTypeGreyBeard || IsActorTypePhantomGreyBeard){
                         util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x875, "Heroes of Yore.esp")));
                     }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x16E28, "Heroes of Yore.esp")));
+                    
+                }else{
+                    if (IsActorTypeEbonyWarrior){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B8, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeUlfric){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B4, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGormlaith){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x886, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGreyBeard || IsActorTypePhantomGreyBeard){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x874, "Heroes of Yore.esp")));
                     }
                 }
                 break;
 
-            case "ks_DragonIceFormShout"_h:
-            case "ks_DragonIceFormShoutALDUIN"_h:
-            case "ks_DragonIceFormShoutODAH"_h:
-            case "ks_DragonIceFormShoutPAAR"_h:
-            case "005FrostForgetShouts"_h:
-            case "005FrostForgetShoutsALDUIN"_h:
-            case "005FrostForgetShoutsODAH"_h:
-            case "005FrostForgetShoutsPAAR"_h:
+            case "HoY_FireBreathShout_Gormlaith"_h:
+            case "HoY_FireBreathShout_Felldir"_h:
+            case "HoY_FireBreathShout_Miraak"_h:
+            case "HoY_FireBreathShout_GreyBeard"_h:
+            case "HoY_FireBreathShout_PhantomFelldir"_h:
                 if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x16E6F, "Heroes of Yore.esp")));
+                    if (IsActorTypeFelldir || IsActorTypePhantomFelldir){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x895, "Heroes of Yore.esp")));
                     }
                     if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x10FF02, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x878, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x16E3C, "Heroes of Yore.esp")));
-                    }
-                    
-                }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x16E6B, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x10FF01, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x877, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x16E2A, "Heroes of Yore.esp")));
-                    }
-                }
-                break;
-
-            case "ks_DragonDisarmShout"_h:
-            case "ks_DragonDisarmShoutALDUIN"_h:
-            case "ks_DragonDisarmShoutODAH"_h:
-            case "ks_DragonDisarmShoutPAAR"_h:
-                if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x16E7A, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x10FF00, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x87A, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x16E44, "Heroes of Yore.esp")));
-                    }
-                    
-                }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x16E79, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x10FEFF, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x879, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x16E3D, "Heroes of Yore.esp")));
-                    }
-                }
-                break;
-
-            case "L_DragonFireBreathShoutDRAGON"_h:
-            case "L_DragonFireBreathShoutALDUIN2"_h:
-            case "L_DragonFireBreathShoutODAH"_h:
-            case "L_DragonFireBreathShoutPAAR"_h:
-            case "L_DragonFireBallShout"_h:
-            case "L_DragonFireBallShoutALDUIN2"_h:
-            case "L_DragonFireBallShoutODAH"_h:
-            case "L_DragonFireBallShoutPAAR"_h:
-            case "ks_DragonFlameWaveShout"_h:
-            case "ks_DragonFlameWaveShoutODAH"_h:
-            case "ks_DragonFlameWaveShoutPAAR"_h:
-                if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x16ED0, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x10F563, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x87C, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x16E4E, "Heroes of Yore.esp")));
-                    }
-                    
-                }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x16E91, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x10F562, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x87B, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x16E46, "Heroes of Yore.esp")));
-                    }
-                }
-                break;
-
-            case "L_DragonFrostBreathShout"_h:
-            case "L_DragonFrostBreathShoutALDUIN"_h:
-            case "L_DragonFrostBreathShoutODAH"_h:
-            case "L_DragonFrostBreathShoutPAAR"_h:
-            case "L_DragonFrostIceStormShout"_h:
-            case "L_DragonFrostIceStormShoutALDUIN"_h:
-            case "L_DragonFrostIceStormShoutODAH"_h:
-            case "L_DragonFrostIceStormShoutPAAR"_h:
-                if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x81B, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8A4, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x87E, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8D3, "Heroes of Yore.esp")));
-                    }
-                    
-                }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x81A, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8A3, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x87D, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8D2, "Heroes of Yore.esp")));
-                    }
-                }
-                break;
-
-            case "Serio_EDR_ChainSuppressionShout"_h:
-            case "Serio_EDR_ChainSuppressionShoutALDUIN"_h:
-            case "Serio_EDR_ChainSuppressionShoutODAH"_h:
-            case "Serio_EDR_ChainSuppressionShoutPAAR"_h:
-                if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x826, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8AA, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x884, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8D7, "Heroes of Yore.esp")));
-                    }
-                    
-                }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x825, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8A9, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x883, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8D6, "Heroes of Yore.esp")));
-                    }
-                }
-                break;
-
-            case "Serio_EDR_StaggerSpikesShout"_h:
-            case "Serio_EDR_StaggerSpikesShoutALDUIN"_h:
-            case "Serio_EDR_StaggerSpikesShoutODAH"_h:
-            case "Serio_EDR_StaggerSpikesShoutPAAR"_h:
-                if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x824, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B0, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x88A, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8DD, "Heroes of Yore.esp")));
-                    }
-                    
-                }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x823, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8AF, "Heroes of Yore.esp")));
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x850, "Heroes of Yore.esp")));
                     }
                     if (IsActorTypeGormlaith){
                         util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x889, "Heroes of Yore.esp")));
                     }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8DC, "Heroes of Yore.esp")));
+                    if (IsActorTypeGreyBeard || IsActorTypePhantomGreyBeard){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x877, "Heroes of Yore.esp")));
+                    }
+                    
+                }else{
+                    if (IsActorTypeFelldir || IsActorTypePhantomFelldir){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x894, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeMiraak){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x84F, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGormlaith){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x888, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGreyBeard || IsActorTypePhantomGreyBeard){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x876, "Heroes of Yore.esp")));
                     }
                 }
                 break;
 
-            case "ks_DragonMarkedforDeathShout"_h:
-            case "ks_DragonMarkedforDeathShoutALDUIN"_h:
-            case "ks_DragonMarkedforDeathShoutODAH"_h:
-            case "Serio_EDR_MarkedForDeathShout"_h:
-            case "Serio_EDR_MarkedForDeathShoutALDUIN"_h:
-            case "Serio_EDR_MarkedForDeathShoutODAH"_h:
+            case "HoY_MoonBlastShout_Miraak"_h:
                 if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x82C, "Heroes of Yore.esp")));
+                    util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x86D, "Heroes of Yore.esp")));
+                }else{
+                    util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x86C, "Heroes of Yore.esp")));
+                }
+                break;
+
+            case "HoY_DevourSoulShout_Miraak"_h:
+                if (SpellFire){
+                    util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x863, "Heroes of Yore.esp")));
+                }else{
+                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x862, "Heroes of Yore.esp")));
+                }
+                break;
+
+            case "MQ105PhantomFormShout"_h:
+            case "HoY_PhantomFormShout_GreyBeard"_h:
+            case "HoY_PhantomFormShout_Felldir"_h:
+                if (SpellFire){
+                    if (IsActorTypeFelldir || IsActorTypePhantomFelldir){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x89B, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGreyBeard || IsActorTypePhantomGreyBeard){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x87B, "Heroes of Yore.esp")));
+                    }
+
+                }else{
+                    if (IsActorTypeFelldir || IsActorTypePhantomFelldir){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x89A, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGreyBeard || IsActorTypePhantomGreyBeard){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x87A, "Heroes of Yore.esp")));
+                    }
+                }
+                break;
+
+            case "HoY_CycloneShout_Felldir"_h:
+            case "HoY_CycloneShout_Miraak"_h:
+            case "HoY_CycloneShout_PhantomFelldir"_h:
+                if (SpellFire){
+                    if (IsActorTypeFelldir || IsActorTypePhantomFelldir){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x899, "Heroes of Yore.esp")));
                     }
                     if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B2, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x88C, "Heroes of Yore.esp")));
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x865, "Heroes of Yore.esp")));
                     }
                 }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x82B, "Heroes of Yore.esp")));
+                    if (IsActorTypeFelldir || IsActorTypePhantomFelldir){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x898, "Heroes of Yore.esp")));
                     }
                     if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B1, "Heroes of Yore.esp")));
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x864, "Heroes of Yore.esp")));
+                    }
+                }
+                break;
+
+            case "HoY_ApocryphalCataclysmShout_Miraak"_h:
+                if (SpellFire){
+                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x867, "Heroes of Yore.esp")));
+                }else{
+                    util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x866, "Heroes of Yore.esp")));
+                }
+                break;
+
+            case "HoY_IceFormShout_Gormlaith"_h:
+            case "HoY_IceFormShout_GreyBeard"_h:
+                if (SpellFire){
+                    if (IsActorTypeGormlaith){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x885, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGreyBeard || IsActorTypePhantomGreyBeard){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x873, "Heroes of Yore.esp")));
+                    }
+                }else{
+                    if (IsActorTypeGormlaith){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x884, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGreyBeard || IsActorTypePhantomGreyBeard){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x872, "Heroes of Yore.esp")));
+                    }
+                }
+                break;
+
+            case "HoY_ClearSkiesShout_Felldir"_h:
+            case "HoY_ClearSkiesShout_Gormlaith"_h:
+            case "HoY_ClearSkiesShout_Hakon"_h:
+            case "HoY_ClearSkiesShout_GreyBeard"_h:
+                if (SpellFire){
+                    if (IsActorTypeFelldir || IsActorTypePhantomFelldir){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8A1, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeHakon){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B1, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGormlaith){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x891, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGreyBeard || IsActorTypePhantomGreyBeard){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x87D, "Heroes of Yore.esp")));
+                    }
+                    
+                }else{
+                    if (IsActorTypeFelldir || IsActorTypePhantomFelldir){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8A0, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeHakon){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B0, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGormlaith){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x890, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGreyBeard || IsActorTypePhantomGreyBeard){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x87C, "Heroes of Yore.esp")));
+                    }
+                }
+                break;
+
+            case "HoY_DismayShout_Hakon"_h:
+            case "HoY_Dismay_GreyBeard"_h:
+            case "HoY_DismayShout_Gormlaith"_h:
+                if (SpellFire){
+                    if (IsActorTypeHakon){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8A5, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGreyBeard){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x871, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGormlaith){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x6842, "Heroes of Yore.esp")));
+                    }
+                }else{
+                    if (IsActorTypeHakon){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8A4, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGreyBeard){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x870, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGormlaith){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x6841, "Heroes of Yore.esp")));
+                    }
+                }
+                break;
+
+            case "HoY_ShockBreathShout_Felldir"_h:
+            case "HoY_ShockBreathShout_Hakon"_h:
+            case "HoY_ShockBreathShout_Miraak"_h:
+            case "HoY_ShockBreathShout_PhantomFelldir"_h:
+                if (SpellFire){
+                    if (IsActorTypeHakon){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8A7, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeMiraak){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x85F, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeFelldir || IsActorTypePhantomFelldir){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x897, "Heroes of Yore.esp")));
+                    }
+                }else{
+                    if (IsActorTypeHakon){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8A6, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeMiraak){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x85E, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeFelldir || IsActorTypePhantomFelldir){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x896, "Heroes of Yore.esp")));
+                    }
+                }
+                break;
+
+            case "HoY_ElementalFuryShout_Hakon"_h:
+            case "HoY_ElementalFuryShout_Miraak"_h:
+            case "HoY_ElementalFuryShout_GreyBeard"_h:
+                if (SpellFire){
+                    if (IsActorTypeHakon){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8AD, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeMiraak){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x86B, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGreyBeard || IsActorTypePhantomGreyBeard){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x87F, "Heroes of Yore.esp")));
+                    }
+                }else{
+                    if (IsActorTypeHakon){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8AC, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeMiraak){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x86A, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGreyBeard || IsActorTypePhantomGreyBeard){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x87E, "Heroes of Yore.esp")));
+                    }
+                }
+                break;
+
+            case "HoY_WhirlwindSprintShout_Miraak"_h:
+            case "HoY_WhirlwindSprintShout_GreyBeard"_h:
+            case "HoY_WhirlwindSprintShout_Hakon"_h:
+                if (SpellFire){
+                    if (IsActorTypeHakon){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x684A, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeMiraak){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x85B, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGreyBeard || IsActorTypePhantomGreyBeard){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x881, "Heroes of Yore.esp")));
+                    }
+                }else{
+                    if (IsActorTypeHakon){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x6849, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeMiraak){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x85A, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGreyBeard || IsActorTypePhantomGreyBeard){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x880, "Heroes of Yore.esp")));
+                    }
+                }
+                break;
+
+            case "HoY_DragonrendShout_Gormlaith"_h:
+            case "HoY_DragonrendShout_Felldir"_h:
+            case "HoY_DragonrendShout_Hakon"_h:
+                if (SpellFire){
+                    if (IsActorTypeHakon){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8AF, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeFelldir || IsActorTypePhantomFelldir){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x89F, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGormlaith){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x88F, "Heroes of Yore.esp")));
+                    }
+                }else{
+                    if (IsActorTypeHakon){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8AE, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeFelldir || IsActorTypePhantomFelldir){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x89E, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGormlaith){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x88E, "Heroes of Yore.esp")));
+                    }
+                }
+                break;
+
+            case "HoY_SkyShiftShout_Miraak"_h:
+                if (SpellFire){
+                    util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x869, "Heroes of Yore.esp")));
+                }else{
+                    util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x868, "Heroes of Yore.esp")));
+                }
+                break;
+
+            case "HoY_FrostBreathShout_Gormlaith"_h:
+            case "HoY_FrostBreathShout_GreyBeard"_h:
+            case "HoY_FrostBreathShout_Hakon"_h:
+            case "HoY_FrostBreathShout_Miraak"_h:
+            case "HoY_FrostBreathShout_PhantomGreyBeard"_h:
+                if (SpellFire){
+                    if (IsActorTypeHakon){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8A9, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeMiraak){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x852, "Heroes of Yore.esp")));
                     }
                     if (IsActorTypeGormlaith){
                         util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x88B, "Heroes of Yore.esp")));
                     }
-                }
-                break;
-
-            case "L_DragonShockBreathShout"_h:
-            case "L_DragonShockBreathShoutALDUIN2"_h:
-            case "L_DragonShockBallShout"_h:
-            case "L_DragonShockBallShoutALDUIN2"_h:
-                if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x830, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B8, "Heroes of Yore.esp")));
-                    }
-                }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x82F, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B7, "Heroes of Yore.esp")));
-                    }
-                }
-                break;
-
-            case "ks_DragonSoulTearShout"_h:
-            case "ks_DragonSoulTearShout_ALDUIN"_h:
-                if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x822, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8BA, "Heroes of Yore.esp")));
-                    }
-                }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x821, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B9, "Heroes of Yore.esp")));
-                    }
-                }
-                break;
-
-            case "Serio_EDR_DevourMoonLightShout"_h:
-            case "Serio_EDR_DevourMoonLightShoutALDUIN"_h:
-            case "Serio_EDR_DevourMoonLightShoutODAH"_h:
-                if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8C9, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8C0, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8C6, "Heroes of Yore.esp")));
-                    }
-                }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8C8, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8BF, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8C5, "Heroes of Yore.esp")));
-                    }
-                }
-                break;
-
-            case "005StormShoutsALLD"_h:
-                if (SpellFire){
-                    util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8CB, "Heroes of Yore.esp")));
-                }else{
-                    util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8CA, "Heroes of Yore.esp")));
-                }
-                break;
-
-            case "Serio_EDR_StormBarrageShout"_h:
-                if (SpellFire){
-                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8CD, "Heroes of Yore.esp")));
-                }else{
-                    util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8CC, "Heroes of Yore.esp")));
-                }
-                break;
-
-            case "PaarthurnaxClearSkies"_h:
-                if (SpellFire){
-                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8E5, "Heroes of Yore.esp")));
-                }else{
-                    util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8E4, "Heroes of Yore.esp")));
-                }
-                break;
-
-            case "PaarthurnaxBattleFury"_h:
-                if (SpellFire){
-                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x90D, "Heroes of Yore.esp")));
-                }else{
-                    util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x90C, "Heroes of Yore.esp")));
-                }
-                break;
-
-            case "005ShockForgetShouts"_h:
-            case "005ShockForgetShoutsALDUIN"_h:
-                if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8F5, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8FB, "Heroes of Yore.esp")));
-                    }
-                }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8F4, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8FA, "Heroes of Yore.esp")));
-                    }
-                }
-                break;
-
-            case "005FireForgetShouts"_h:
-            case "005FireForgetShoutsALDUIN"_h:
-            case "005FireForgetShoutsODAH"_h:
-            case "005FireForgetShoutsPAAR"_h:
-                if (SpellFire){
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x90B, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x909, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGormlaith){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x905, "Heroes of Yore.esp")));
-                    }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x907, "Heroes of Yore.esp")));
+                    if (IsActorTypeGreyBeard || IsActorTypePhantomGreyBeard){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x879, "Heroes of Yore.esp")));
                     }
                     
                 }else{
-                    if (IsActorTypeFelldir){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x90A, "Heroes of Yore.esp")));
+                    if (IsActorTypeHakon){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8A8, "Heroes of Yore.esp")));
                     }
                     if (IsActorTypeMiraak){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x908, "Heroes of Yore.esp")));
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x851, "Heroes of Yore.esp")));
                     }
                     if (IsActorTypeGormlaith){
-                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x904, "Heroes of Yore.esp")));
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x88A, "Heroes of Yore.esp")));
                     }
-                    if (IsActorTypeGreyBeard){
-                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x906, "Heroes of Yore.esp")));
+                    if (IsActorTypeGreyBeard || IsActorTypePhantomGreyBeard){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x878, "Heroes of Yore.esp")));
                     }
+                }
+                break;
+
+            case "HoY_UnrelentingForceShout_Gormlaith"_h:
+            case "HoY_UnrelentingForceShout_Felldir"_h:
+            case "HoY_UnrelentingForceShout_Hakon"_h:
+            case "HoY_UnrelentingForceShout_Miraak"_h:
+            case "HoY_UnrelentingForceShout_EbonyWarrior"_h:
+            case "HoY_UnrelentingForceShout_GreyBeard"_h:
+            case "HoY_UnrelentingForceShout_Tsun"_h:
+            case "HoY_UnrelentingForceShout_Ulfric"_h:
+            case "HoY_UnrelentingForceShout_PhantomFelldir"_h:
+            case "HoY_UnrelentingForceShout_PhantomGreyBeard"_h:
+                if (SpellFire){
+                    if (IsActorTypeFelldir || IsActorTypePhantomFelldir){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x893, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeMiraak){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x84D, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGormlaith){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x883, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGreyBeard || IsActorTypePhantomGreyBeard){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x86F, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeHakon){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8A3, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeUlfric){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B3, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeTsun){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8BB, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeEbonyWarrior){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B7, "Heroes of Yore.esp")));
+                    }
+                    
+                }else{
+                    if (IsActorTypeFelldir || IsActorTypePhantomFelldir){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x892, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeMiraak){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x84C, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGormlaith){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x882, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGreyBeard || IsActorTypePhantomGreyBeard){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x86E, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeHakon){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8A2, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeUlfric){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B2, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeTsun){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8BA, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeEbonyWarrior){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B6, "Heroes of Yore.esp")));
+                    }
+                }
+                break;
+
+            case "HoY_ThuumSeekShout_Miraak"_h:
+            case "HoY_ThuumSeekShout_Felldir"_h:
+                if (SpellFire){
+                    if (IsActorTypeFelldir || IsActorTypePhantomFelldir){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x6844, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeMiraak){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x687B, "Heroes of Yore.esp")));
+                    }
+                }else{
+                    if (IsActorTypeFelldir || IsActorTypePhantomFelldir){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x6843, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeMiraak){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x687A, "Heroes of Yore.esp")));
+                    }
+                }
+                break;
+
+            case "HoY_BecomeEtherealShout_Gormlaith"_h:
+            case "HoY_BecomeEtherealShout_Hakon"_h:
+            case "HoY_BecomeEtherealShout_Miraak"_h:
+                if (SpellFire){
+                    if (IsActorTypeHakon){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8AB, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeMiraak){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x861, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGormlaith){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x88D, "Heroes of Yore.esp")));
+                    }
+                }else{
+                    if (IsActorTypeHakon){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x8AA, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeMiraak){
+                        util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x860, "Heroes of Yore.esp")));
+                    }
+                    if (IsActorTypeGormlaith){
+                        util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x88C, "Heroes of Yore.esp")));
+                    }
+                }
+                break;
+
+            case "HoY_DrainVitalityShout_Felldir"_h:
+                if (SpellFire){
+                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x89D, "Heroes of Yore.esp")));
+                }else{
+                    util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x89C, "Heroes of Yore.esp")));
+                }
+                break;
+
+            case "HoY_MirrorMissilesShout_Felldir"_h:
+                if (SpellFire){
+                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x68A4, "Heroes of Yore.esp")));
+                }else{
+                    util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x68A3, "Heroes of Yore.esp")));
                 }
                 break;
             }
@@ -945,7 +618,7 @@ namespace hooks
 // const auto ActorTypeDragon = RE::BGSKeyword::LookupByEditorID("ActorTypeDragon")->As<RE::BGSKeyword>();
 // auto UDDragonAISpell = RE::TESForm::LookupByEditorID<RE::SpellItem>("aaaUDDragonAISpell");
 
-// bool IsActorTypeFelldir = Dragon->HasKeyword(ActorTypeDragon);
+// bool IsActorTypeFelldir || IsActorTypePhantomFelldir = Dragon->HasKeyword(ActorTypeDragon);
 // bool HasUDDragonAISpell = Dragon->HasSpell(UDDragonAISpell);
 
 // uti/l::playSound(actor, RE::TESForm::LookupByEditorID<RE::TESForm>
