@@ -51,9 +51,9 @@ namespace hooks
 
             case "HoY_PullofNirnShout_Miraak"_h:
                 if (SpellFire){
-                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x856, "Heroes of Yore.esp")));
+                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x68D2, "Heroes of Yore.esp")));
                 }else{
-                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x855, "Heroes of Yore.esp")));
+                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x68D1, "Heroes of Yore.esp")));
                 }
                 break;
 
