@@ -1,8 +1,11 @@
 #include "hook.h"
+#include "util.h"
+#include "ClibUtil/editorID.hpp"
+
+#pragma warning(disable: 4100)
 
 namespace hooks
 {
-    RE::TESForm;
     void on_animation_event::GetEquippedShout(RE::Actor *actor, bool SpellFire){
         auto limboshout = actor->GetActorRuntimeData().selectedPower;
 
@@ -20,10 +23,10 @@ namespace hooks
             // bool IsActorTypeTsun = actor->HasKeywordString("HoY_Tsun");
             // bool IsActorTypeEbonyWarrior = actor->HasKeywordString("HoY_EbonyWarrior");
 
-            std::string_view Lsht = (clib_util::editorID::get_editorID(limboshout)).data();
+            std::string Lsht = (clib_util::editorID::get_editorID(limboshout));
             //logger::info("Actor {} Shout {}"sv, actor->GetName(), Lsht);
-            
-            switch (hash(Lsht.data(), Lsht.size()))
+
+            switch (hash(Lsht.c_str(), Lsht.size()))
             {
             case "HoY_BendWillShout_Miraak"_h:
                 if (SpellFire){
@@ -81,7 +84,7 @@ namespace hooks
                 break;
             case "HoY_DisarmShout_Ulfric"_h:
                 if (SpellFire){
-                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B5, "Heroes of Yore.esp"))); 
+                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B5, "Heroes of Yore.esp")));
                 }else{
                     util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B4, "Heroes of Yore.esp")));
                 }
@@ -110,7 +113,7 @@ namespace hooks
                 break;
             case "HoY_FireBreathShout_Miraak"_h:
                 if (SpellFire){
-                    util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x850, "Heroes of Yore.esp")));  
+                    util::playSound(actor,(data->LookupForm<RE::BGSSoundDescriptorForm>(0x850, "Heroes of Yore.esp")));
                 }else{
                     util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x84F, "Heroes of Yore.esp")));
                 }
@@ -398,7 +401,7 @@ namespace hooks
 
             case "HoY_UnrelentingForceShout_Hakon"_h:
                 if (SpellFire){
-                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8A3, "Heroes of Yore.esp"))); 
+                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8A3, "Heroes of Yore.esp")));
                 }else{
                     util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8A2, "Heroes of Yore.esp")));
                 }
@@ -407,7 +410,7 @@ namespace hooks
             case "HoY_UnrelentingForceShout_Miraak"_h:
                 if (SpellFire){
                     util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x84D, "Heroes of Yore.esp")));
-                    
+
                 }else{
                     util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x84C, "Heroes of Yore.esp")));
                 }
@@ -424,7 +427,7 @@ namespace hooks
             case "HoY_UnrelentingForceShout_GreyBeard"_h:
             case "HoY_UnrelentingForceShout_PhantomGreyBeard"_h:
                 if (SpellFire){
-                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x86F, "Heroes of Yore.esp")));    
+                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x86F, "Heroes of Yore.esp")));
                 }else{
                     util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x86E, "Heroes of Yore.esp")));
                 }
@@ -432,7 +435,7 @@ namespace hooks
 
             case "HoY_UnrelentingForceShout_Tsun"_h:
                 if (SpellFire){
-                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8BB, "Heroes of Yore.esp")));  
+                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8BB, "Heroes of Yore.esp")));
                 }else{
                     util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8BA, "Heroes of Yore.esp")));
                 }
@@ -440,7 +443,7 @@ namespace hooks
 
             case "HoY_UnrelentingForceShout_Ulfric"_h:
                 if (SpellFire){
-                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B3, "Heroes of Yore.esp")));  
+                    util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B3, "Heroes of Yore.esp")));
                 }else{
                     util::playSound(actor, (data->LookupForm<RE::BGSSoundDescriptorForm>(0x8B2, "Heroes of Yore.esp")));
                 }
@@ -503,7 +506,7 @@ namespace hooks
                 break;
 
             default:
-               
+
                break;
             }
         }
