@@ -13,16 +13,12 @@ void MessageHandler(SKSE::MessagingInterface::Message* a_msg)
 		hooks::on_animation_event::install();
 
 		break;
-	case SKSE::MessagingInterface::kPostLoad:
-		break;
-	case SKSE::MessagingInterface::kPreLoadGame:
-		break;
-	case SKSE::MessagingInterface::kPostLoadGame:
-        break;
-	case SKSE::MessagingInterface::kNewGame:
+	default:
+
 		break;
 	}
 }
+
 
 SKSEPluginLoad(const SKSE::LoadInterface *skse) {
     SKSE::Init(skse);
@@ -34,6 +30,5 @@ SKSEPluginLoad(const SKSE::LoadInterface *skse) {
 		return false;
 	}
 
-	
-    return true;
+	return true;
 }
